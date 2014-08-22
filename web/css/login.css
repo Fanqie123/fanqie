@@ -1,0 +1,112 @@
+body {
+    font-family: "Microsoft Yahei UI", "Microsoft Yahei", SimSun, sans-serif;
+    font-size: 16px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+    background: url(../img/crossword.png);
+}
+
+.navbar-default {
+    background-color: #80397b;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+    font-size: 12pt;
+    transition: background-color 0.7s;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #975d93;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.modal-header {
+    min-height: 16.42857143px;
+    padding: 15px;
+    border-bottom: none;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: none;
+}
+
+.form-control:focus {
+    border-color: #80397b;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(128, 57, 123, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(128, 57, 123, .6);
+}
+
+.control-label {
+    font-weight: 400;
+}
+
+#c1 {
+    margin-top: 60px;
+}
+
+#c2 {
+    display: none;
+}
+
+.form-horizontal {
+    margin: 60px auto;
+    width: 500px;
+}
