@@ -1,5 +1,6 @@
 package Servlet;
 
+import javabean.User;
 import main.DAOProxy;
 
 import javax.servlet.ServletException;
@@ -19,12 +20,21 @@ public class AccountCheck extends HttpServlet {
         String account = request.getParameter("account");
         if (account == null) return;
         try {
-            PrintWriter out = response.getWriter();
-            if (new DAOProxy().accountCheck(account)) out.print("exist");
-            out.close();
+            User user = new User();
+            user.setAccount(account);
+
+            if (!new DAOProxy<User>(user).find().isEmpty()){
+                PrintWriter out = response.getWriter();
+                out.print("exist");
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
     }

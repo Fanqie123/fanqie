@@ -1,13 +1,12 @@
 package filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
  * Servlet Filter implementation class CharSet
  */
-@WebFilter("/CharSet")
+
 public class CharSet implements Filter {
 
     /**

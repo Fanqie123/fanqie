@@ -1971,21 +1971,16 @@
       <column name="CURRENT_CONNECTIONS" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="TOTAL_CONNECTIONS" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
     </table>
-    <table name="demo" schema="" catalog="test" type="TABLE">
-      <column name="a" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="b" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="a"/>
-    </table>
-    <table name="order_list" schema="" catalog="test" type="TABLE">
+    <table name="orderlist" schema="" catalog="test" type="TABLE">
       <column name="order_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="room_no" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <column name="account" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
-      <column name="start_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
-      <column name="end_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
-      <column name="order_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="start_date" sqlType="VARCHAR" precision="12" scale="0" nullable="true" jdbcType="12"/>
+      <column name="end_date" sqlType="VARCHAR" precision="12" scale="0" nullable="true" jdbcType="12"/>
+      <column name="order_date" sqlType="VARCHAR" precision="12" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="order_no"/>
-      <foreign-key name="order_list_ibfk_1" columns="room_no" ref-table="room" ref-schema="" ref-catalog="test" ref-columns="room_no" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="order_list_ibfk_2" columns="account" ref-table="user" ref-schema="" ref-catalog="test" ref-columns="account" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orderlist_ibfk_1" columns="room_no" ref-table="room" ref-schema="" ref-catalog="test" ref-columns="room_no" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="orderlist_ibfk_2" columns="account" ref-table="user" ref-schema="" ref-catalog="test" ref-columns="account" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="room" schema="" catalog="test" type="TABLE">
       <column name="room_no" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
@@ -1993,18 +1988,7 @@
       <column name="room_price" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="room_info" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="room_no"/>
-      <exported-key name="order_list_ibfk_1" table="order_list" schema="" catalog="test" columns="room_no"/>
-      <exported-key name="room_order_ibfk_1" table="room_order" schema="" catalog="test" columns="room_no"/>
-    </table>
-    <table name="room_order" schema="" catalog="test" type="TABLE">
-      <column name="order_no" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="room_no" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
-      <column name="order_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
-      <column name="account" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="order_no"/>
-      <foreign-key name="room_order_ibfk_1" columns="room_no" ref-table="room" ref-schema="" ref-catalog="test" ref-columns="room_no" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="room_order_ibfk_2" columns="account" ref-table="user" ref-schema="" ref-catalog="test" ref-columns="account" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="order_uni" unique="true" columns="room_no,order_date"/>
+      <exported-key name="orderlist_ibfk_1" table="orderlist" schema="" catalog="test" columns="room_no"/>
     </table>
     <table name="user" schema="" catalog="test" type="TABLE">
       <column name="account" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
@@ -2013,8 +1997,7 @@
       <column name="sex" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
       <column name="id" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="account"/>
-      <exported-key name="order_list_ibfk_2" table="order_list" schema="" catalog="test" columns="account"/>
-      <exported-key name="room_order_ibfk_2" table="room_order" schema="" catalog="test" columns="account"/>
+      <exported-key name="orderlist_ibfk_2" table="orderlist" schema="" catalog="test" columns="account"/>
     </table>
   </data-source>
 </component>

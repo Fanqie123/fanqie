@@ -36,26 +36,6 @@
         <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>room_search</servlet-name>
-        <servlet-class>Servlet.Search</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>room_search</servlet-name>
-        <url-pattern>/search</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>room_order</servlet-name>
-        <servlet-class>Servlet.Order</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>MyOrder</servlet-name>
-        <servlet-class>Servlet.MyOrder</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>order_delete</servlet-name>
-        <servlet-class>Servlet.OrderDelete</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>AccountCheck</servlet-name>
         <servlet-class>Servlet.AccountCheck</servlet-class>
     </servlet>
@@ -71,6 +51,14 @@
         <servlet-name>UserUpdate</servlet-name>
         <servlet-class>Servlet.UserUpdate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderPro</servlet-name>
+        <servlet-class>Servlet.OrderPro</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderPro</servlet-name>
+        <url-pattern>/order_pro</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserUpdate</servlet-name>
         <url-pattern>/user_update</url-pattern>
@@ -79,23 +67,10 @@
         <servlet-name>AccountCheck</servlet-name>
         <url-pattern>/account_check</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>order_delete</servlet-name>
-        <url-pattern>/orderDelete</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MyOrder</servlet-name>
-        <url-pattern>/myorder</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>room_order</servlet-name>
-        <url-pattern>/order</url-pattern>
-    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>/WEB-INF/login.html</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
-    <error-page>
+<!--    <error-page>
         <location>/WEB-INF/error_page.html</location>
-    </error-page>
-
+    </error-page>-->
 </web-app>

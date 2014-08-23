@@ -8,8 +8,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
@@ -39,12 +38,6 @@ public class Hello extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        PrintWriter out=response.getWriter();
-        String account = (String) request.getSession().getAttribute("account");
-        System.out.print(account);
-        String json = request.getParameter("user");
-        System.out.print(json);
-        out.print("success");
     }
 
 }

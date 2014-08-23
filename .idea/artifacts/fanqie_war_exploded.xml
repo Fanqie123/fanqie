@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="fanqie:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="fanqie:war exploded">
     <output-path>$PROJECT_DIR$/web</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -7,7 +7,8 @@
           <element id="module-output" name="fanqie" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="gson-2.2.4" />
+          <element id="file-copy" path="$PROJECT_DIR$/../gson-2.2.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../mysql-connector-java-5.1.26-bin.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="fanqie/web/Web" />

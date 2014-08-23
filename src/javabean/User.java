@@ -9,7 +9,14 @@ public class User implements Serializable {
     private String name;
     private String sex;
 
-    public User() {
+    public User() {}
+
+    public User(String account, String id, String password, String name, String sex) {
+        this.account = account;
+        this.id = id;
+        this.password = password;
+        this.name = name;
+        this.sex = sex;
     }
 
     public String getAccount() {

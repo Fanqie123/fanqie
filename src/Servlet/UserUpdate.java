@@ -18,7 +18,7 @@ import java.sql.SQLException;
  */
 public class UserUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String json = request.getParameter("user");
+       /* String json = request.getParameter("user");
         String account = (String) request.getSession().getAttribute("account");
         PrintWriter out = response.getWriter();
         boolean bool = false;
@@ -48,7 +48,7 @@ public class UserUpdate extends HttpServlet {
         if (bool)
             out.print("success");
 
-        out.close();
+        out.close();*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

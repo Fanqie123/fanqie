@@ -18,7 +18,7 @@ import java.sql.SQLException;
  */
 public class UserInfo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String account = (String)request.getSession().getAttribute("account");
+       /* String account = (String)request.getSession().getAttribute("account");
         if(account==null) return;
 
         try {
@@ -30,7 +30,7 @@ public class UserInfo extends HttpServlet {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

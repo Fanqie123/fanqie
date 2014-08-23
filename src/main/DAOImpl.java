@@ -1,78 +1,140 @@
 package main;
 
-
 import javabean.OrderList;
 import javabean.Room;
-import javabean.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
- * dao
- * Created by test on 2014/7/31.
+ * 反射DAO 完成javabean 基本 增删查改
+ * Created by test on 2014/8/20.
  */
-class DAOImpl {
-    private Connection connection = null;
-    private PreparedStatement ps;
 
-    public DAOImpl(Connection connection) {
-        this.connection = connection;
+public class DAOImpl<E> {
+    E e;
+    Class<E> className;
+    Field[] fields;
+    Connection connection;
+    PreparedStatement ps;
+    public DAOImpl(E e,Connection connection){
+        this.e=e;
+        this.className= (Class<E>) e.getClass();
+        this.fields = className.getDeclaredFields();
+        this.connection=connection;
     }
 
-    public User findUser(String account) throws SQLException {
-        User user = new User();
-        ps = connection.prepareStatement("select password,name,sex,id from User where account=?");
-        ps.setString(1, account);
+    public List findAll() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<E> list = new LinkedList<E>();
+        Connection connection = new Conn().getConnection();
+        ps = connection.prepareStatement("select * from " + className.getSimpleName());
         ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            user.setAccount(account);
-            user.setPassword(rs.getString(1));
-            user.setName(rs.getString(2));
-            user.setSex(rs.getString(3));
-            user.setId(rs.getString(4));
-            ps.close();
-            return user;
+        while (rs.next()) {
+            E temp = className.newInstance();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                field.set(temp, rs.getObject(field.getName()));
+            }
+            list.add(temp);
         }
         ps.close();
-        return null;
+        return list;
     }
 
-    public boolean doCreateUser(User user) throws SQLException {
-        ps = connection.prepareStatement("insert into user values(?,?,?,?,?)");
-        ps.setString(1, user.getAccount());
-        ps.setString(2, user.getPassword());
-        ps.setString(3, user.getName());
-        ps.setString(4, user.getSex());
-        ps.setString(5, user.getId());
-        int count = ps.executeUpdate();
+    public List find() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+        List<E> list = new LinkedList<E>();
+        StringBuilder sql = new StringBuilder("select * from " + e.getClass().getSimpleName() + " where ");
+        for (Field field : fields) {
+            field.setAccessible(true);
+            if (field.get(e) != null) {
+                sql.append(field.getName());
+                sql.append("=? and ");
+            }
+        }
+        sql.delete(sql.length() - 5, sql.length());
+        ps = connection.prepareStatement(sql.toString());
+        int count=1;
+        for (Field field : fields) {
+            if (field.get(e) != null) {
+                ps.setObject(count++, field.get(e));
+            }
+        }
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            E temp = className.newInstance();
+            for (Field field : fields) {
+                field.setAccessible(true);
+                field.set(temp, rs.getObject(field.getName()));
+            }
+            list.add(temp);
+        }
         ps.close();
-        return count==1;
+        return list;
     }
 
-    public boolean UpdateUser(User user) throws SQLException {
-        ps=connection.prepareStatement("update user set name=?,sex=?,id=? where account=?");
-        ps.setString(1, user.getName());
-        ps.setString(2, user.getSex());
-        ps.setString(3, user.getId());
-        ps.setString(4, user.getAccount());
+    public boolean create() throws SQLException, ClassNotFoundException, IllegalAccessException {
+        Field[] fields = e.getClass().getDeclaredFields();
+
+        StringBuilder sql1 = new StringBuilder("insert into " + e.getClass().getSimpleName() + "(");
+        StringBuilder sql2 = new StringBuilder("value(");
+        for (Field field : fields) {
+            field.setAccessible(true);
+            sql1.append(field.getName());
+            sql1.append(",");
+            sql2.append("?,");
+        }
+        sql1.deleteCharAt(sql1.length() - 1);
+        sql1.append(")");
+        sql2.deleteCharAt(sql2.length() - 1);
+        sql2.append(")");
+        sql1.append(sql2);
+        ps = connection.prepareStatement(sql1.toString());
+
+        for (int i = 0; i < fields.length; i++) {
+            ps.setObject(i + 1, fields[i].get(e));
+        }
         int count = ps.executeUpdate();
         ps.close();
         return count == 1;
     }
 
-    public List<Room> findRoom(String room_type, String start_date, String end_date) throws SQLException {
+    public boolean remove() throws IllegalAccessException, SQLException, ClassNotFoundException {
+        Field[] fields = e.getClass().getDeclaredFields();
+        StringBuilder sql = new StringBuilder("delete from " + e.getClass().getSimpleName() + " where ");
+        for (Field field : fields) {
+            field.setAccessible(true);
+            if (field.get(e) != null) {
+                sql.append(field.getName());
+                sql.append("=? and ");
+            }
+        }
+        sql.delete(sql.length() - 5, sql.length());
+        ps = connection.prepareStatement(sql.toString());
+        int index = 1;
+        for (Field field : fields) {
+            if (field.get(e) != null) {
+                ps.setObject(index++, field.get(e));
+            }
+        }
+        int count = ps.executeUpdate();
+        ps.close();
+        return count == 1;
+    }
+
+    public List<Room> findRoom(String start_date, String end_date) throws SQLException {
         List<Room> list = new ArrayList<Room>();
+        String room_type = ((Room) e).getRoom_type();
         String sql;
         if (room_type.equals("0")) {
-            sql = "select a.room_no,a.room_type,a.room_price,a.room_info from room a where not exists(select 1 from order_list b where a.room_no=b.room_no and " +
+            sql = "select a.room_no,a.room_type,a.room_price,a.room_info from room a where not exists(select 1 from orderlist b where a.room_no=b.room_no and " +
                     "(? between start_date and end_date or ? between start_date and end_date))";
         } else {
-            sql = "select a.room_no,a.room_type,a.room_price,a.room_info from room a where not exists(select 1 from order_list b where a.room_no=b.room_no and " +
+            sql = "select a.room_no,a.room_type,a.room_price,a.room_info from room a where not exists(select 1 from orderlist b where a.room_no=b.room_no and " +
                     "(? between start_date and end_date or ? between start_date and end_date)) and a.room_type='" +
                     room_type+"'";
         }
@@ -88,20 +150,16 @@ class DAOImpl {
             room.setRoom_info(rs.getString(4));
             list.add(room);
         }
+        ps.close();
         return list;
     }
 
-    public boolean checkRoomNo(String room_no) throws SQLException {
-        ps = connection.prepareStatement("select 1 from room where room_no=?");
-        ps.setString(1, room_no);
-        ResultSet rs = ps.executeQuery();
-        boolean bool = rs.next();
-        ps.close();
-        return bool;
-    }
-
-    public boolean checkOrder(String room_no, String start_date, String end_date) throws SQLException {
-        ps = connection.prepareStatement("select 1 from order_list  where room_no = ? and " +
+    public boolean checkOrder() throws SQLException {
+        OrderList order=(OrderList)e;
+        String room_no=order.getRoom_no();
+        String start_date=order.getStart_date();
+        String end_date=order.getEnd_date();
+        ps = connection.prepareStatement("select 1 from orderlist  where room_no = ? and " +
                 "(? between start_date and end_date or ? between start_date and end_date)");
         ps.setString(1, room_no);
         ps.setString(2, start_date);
@@ -110,63 +168,5 @@ class DAOImpl {
         boolean bool = rs.next();
         ps.close();
         return bool;
-    }
-
-    public List<OrderList> findOrderList(String account) throws SQLException {
-        List<OrderList> list = new ArrayList<OrderList>();
-        ps = connection.prepareStatement("select order_no,room_no,start_date,end_date,order_date from order_list where account=?");
-        ps.setString(1, account);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            OrderList order = new OrderList();
-            order.setOrder_no(rs.getInt(1));
-            order.setRoom_no(rs.getString(2));
-            order.setStart_date(rs.getString(3));
-            order.setEnd_date(rs.getString(4));
-            order.setOrder_date(rs.getString(5));
-            list.add(order);
-        }
-        ps.close();
-        return list;
-    }
-
-    public OrderList findOrderList(int order_no) throws SQLException {
-        OrderList order;
-        ps = connection.prepareStatement("select order_no,room_no,start_date,end_date,order_date from order_list where order_no=?");
-        ps.setInt(1, order_no);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            order = new OrderList();
-            order.setOrder_no(rs.getInt(1));
-            order.setRoom_no(rs.getString(2));
-            order.setStart_date(rs.getString(3));
-            order.setEnd_date(rs.getString(4));
-            order.setOrder_date(rs.getString(5));
-        } else {
-            order = null;
-        }
-        ps.close();
-        return order;
-
-    }
-
-    public boolean doCreateOrderList(OrderList order) throws SQLException {
-        ps = connection.prepareStatement("insert into order_list value(null,?,?,?,?,?)");
-        ps.setString(1, order.getRoom_no());
-        ps.setString(2, order.getAccount());
-        ps.setString(3, order.getStart_date());
-        ps.setString(4, order.getEnd_date());
-        ps.setString(5, order.getOrder_date());
-        int count = ps.executeUpdate();
-        ps.close();
-        return count == 1;
-    }
-
-    public boolean deleteOrderList(int order_no) throws SQLException {
-        ps = connection.prepareStatement("delete from order_list where order_no=?");
-        ps.setInt(1, order_no);
-        int count = ps.executeUpdate();
-        ps.close();
-        return count == 1;
     }
 }

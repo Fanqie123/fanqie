@@ -7,8 +7,17 @@ package javabean;
 public class Room {
     private String room_no;
     private String room_type;
-    private int room_price;
+    private Integer room_price;
     private String room_info;
+
+    public Room(){}
+
+    public Room(String room_no, String room_type, Integer room_price, String room_info) {
+        this.room_no = room_no;
+        this.room_type = room_type;
+        this.room_price = room_price;
+        this.room_info = room_info;
+    }
 
     public String getRoom_info() {
         return room_info;

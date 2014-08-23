@@ -1,128 +1,82 @@
 package main;
 
-import javabean.Conn;
 import javabean.OrderList;
 import javabean.Room;
-import javabean.User;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * String md5(String string) md5加密
- * Created by test on 2014/7/31.
+
+/**bli
+ * Created by test on 2014/8/22.
  */
-public class DAOProxy {
-    private Conn conn = null;
-    private DAOImpl dao = null;
-
-    public DAOProxy() throws SQLException, ClassNotFoundException {
+public class DAOProxy<E>{
+    E e;
+    private Conn conn=null;
+    private DAOImpl dao=null;
+    private static ConcurrentHashMap<String, Lock> map = new ConcurrentHashMap<String, Lock>();
+    public DAOProxy(E e) throws SQLException, ClassNotFoundException {
+        this.e=e;
         this.conn = new Conn();
-        dao = new DAOImpl(this.conn.getConnection());
+        dao = new DAOImpl<E>(e,this.conn.getConnection());
     }
 
-    public User findUser(String account) throws SQLException {
-        User user = dao.findUser(account);
-        conn.close();
-        return user;
-    }
-    public String loginCheck(String account,String password) throws SQLException, NoSuchAlgorithmException {
-        User user = dao.findUser(account);
-        conn.close();
-        if(md5(password).equals(user.getPassword()))
-            return user.getPassword();
-        else
-            return null;
-    }
-
-    public boolean accountCheck(String account) throws SQLException {
-        User user = dao.findUser(account);
-        conn.close();
-        return user!=null;
-    }
-
-    public boolean signUp(User user) throws SQLException, NoSuchAlgorithmException {
-        user.setPassword(md5(user.getPassword()));
-        boolean bool = dao.doCreateUser(user);
-        conn.close();
-        return bool;
-    }
-
-    public boolean UpdateUser(User user) throws NoSuchAlgorithmException, SQLException {
-        boolean bool = dao.UpdateUser(user);
-        conn.close();
-        return bool;
-    }
-
-    public List<Room> findRoom(String room_type, Date start_date, Date end_date) throws SQLException {
-        List<Room> list;
-
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        String start_date_st = format.format(start_date);
-        String end_date_st = format.format(end_date);
-        list = dao.findRoom(room_type, start_date_st, end_date_st);
+    public List findAll() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        List list = dao.findAll();
         conn.close();
         return list;
     }
 
-    public boolean checkRoomNo(String room_no) throws SQLException {
-        boolean bool = dao.checkRoomNo(room_no);
-        conn.close();
-        return bool;
-    }
-
-    public boolean checkOrder(String room_no, String start_date, String end_date) throws SQLException {
-        boolean bool = dao.checkOrder(room_no, start_date, end_date);
-        conn.close();
-        return bool;
-
-    }
-
-    public List<OrderList> findOrderList(String account) throws SQLException {
-        List<OrderList> list = dao.findOrderList(account);
+    public List find() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        List list = dao.find();
         conn.close();
         return list;
     }
 
-    public boolean doCreateOrderList(OrderList order) throws SQLException {
-        boolean bool = dao.doCreateOrderList(order);
+    public boolean create() throws IllegalAccessException, SQLException, ClassNotFoundException {
+        boolean bool = dao.create();
         conn.close();
         return bool;
     }
 
-    public int deleteOrderList(int order_no, String account) throws SQLException, ParseException {
-        OrderList order = dao.findOrderList(order_no);
-        if (order == null) {
-            conn.close();
-            return 0;
-        }
-        if (!account.equals(order.getAccount())) {
-            conn.close();
-            return 1;
-        }
-        Date start_date = new SimpleDateFormat("yyyy-MM-dd").parse(order.getStart_date());
-        if (start_date.before(new Date())) {
-            conn.close();
-            return 2;
-        }
-        boolean bool = dao.deleteOrderList(order_no);
+    public boolean remove() throws IllegalAccessException, SQLException, ClassNotFoundException {
+        boolean bool = dao.remove();
         conn.close();
-        if (!bool) return 3;
-        else return 4;
+        return bool;
     }
 
-    public static String md5(String s) throws NoSuchAlgorithmException {
-        MessageDigest md5 = MessageDigest.getInstance("MD5");
-        md5.reset();
-        md5.update(s.getBytes());
-        return new BigInteger(md5.digest()).toString(16);
+    public List<Room> findRoom(String start_date, String end_date) throws SQLException {
+        List list;
+        list = dao.findRoom(start_date, end_date);
+        conn.close();
+        return list;
     }
+
+    public boolean createOrder() throws SQLException, IllegalAccessException, ClassNotFoundException {
+        String room_no = ((OrderList)e).getRoom_no();
+        Lock lock;
+        boolean bool;
+        if(map.containsKey(room_no)) {
+            lock = map.get(room_no);
+        }else {
+            lock = new ReentrantLock();
+            map.put(room_no, lock);
+        }
+        lock.lock();
+        try {
+            if (dao.checkOrder())
+                return false;
+            bool=dao.create();
+        } finally {
+            lock.unlock();
+            conn.close();
+        }
+        return bool;
+    }
+
+
 
 }
-

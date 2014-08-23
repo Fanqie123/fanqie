@@ -2,7 +2,7 @@
  * Created by test on 2014/7/28.
  */
 var date = new Date();
-var current_date = curentDate();//date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+var current_date = curentDate();
 $('#start_date_search').val(current_date);
 $('#end_date_search').val(current_date);
 $('#start_date_order').val(current_date);
@@ -44,18 +44,19 @@ $('.form_date').datetimepicker({      //日期选择器
 $('#room_no_order').blur(function () {
     var xml = new XMLHttpRequest();
     var room_no = $('#room_no_order').val();
-    xml.open('POST', 'order', true);
+    xml.open('POST', 'order_pro', true);
     xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xml.send('room_no=' + room_no);
     xml.onreadystatechange = function () {
         if (xml.readyState == 4 && xml.status == 200) {
             var text = xml.responseText;
+            console.log(text);
             if (text == 'illegal_room_no') {
                 $('#alert_order').fadeIn();
                 $('#room_no_order').focus();
                 $('#room_order').attr('disabled', 'disabled');
             } else {
-                $('#alert').hide();
+                $('#alert_order').hide();
                 $('#room_order').removeAttr('disabled');
             }
         }
@@ -77,38 +78,47 @@ $('#room_order').click(function () {           //预定按钮
     var start = new Date(start_date.replace(/-/g, '/'));
     var end = new Date(end_date.replace(/-/g, '/'));
     var today = new Date(current_date.replace(/-/g, '/'));
+    if(room_no==null) {
+        show("房间号码不能为空");
+        $('#room_no_order').focus();
+        return;
+    }
     if (start > end || start < today) {
         show('开始日期应小于等于结束日期');
         return;
     }
-    xml.open('POST', 'order', true);
+    xml.open('POST', 'order_pro', true);
     xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xml.send('room_no=' + room_no + '&start_date=' + start_date + '&end_date=' + end_date + '&account=' + account);
+    xml.send('room_no=' + room_no + '&start=' + start_date + '&end=' + end_date);
     xml.onreadystatechange = function () {
-        if (xml.readyState == 4 && xml.status == 200) {
+        if (xml.readyState == 4 && xml.status == 200)
             var text = xml.responseText;
             switch (text) {
                 case 'illegal_room_no':
                     show('错误的房间号码');
+                    break;
                 case 'ordered_room':
                     show('该房间已被预订');
+                    break;
                 case 'succeed':
                     show('预订成功');
+                    break;
                 case 'failed':
                     show('预定失败');
+                    break;
             }
 
 
         }
     }
 
-});
+);
 
 $("#btn_my_order").click(function () {
     var xml = new XMLHttpRequest();
-    xml.open('POST', 'myorder', true);
+    xml.open('POST', 'order_pro', true);
     xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xml.send('account=' + account);
+    xml.send();
     xml.onreadystatechange = function () {
         xml.onreadystatechange = function () {
             if (xml.readyState == 4 && xml.status == 200) {
@@ -144,7 +154,15 @@ $("#btn_my_order").click(function () {
 });
 
 $('#btn_order_cancel').click(function () {
-    var room_no = $('#table_body1 tr.selected').children().first().html();
+    var order_no = $('#table_body1 tr.selected').children().first().html();
+    $.ajax({
+        url: "order_pro",
+        type: "post",
+        data: "order_no="+order_no,
+        success:function(info){
+            console.log(info);
+        }
+    });
 });
 
 
@@ -223,7 +241,8 @@ function select() {
         show('开始日期应小于等于结束日期');
         return;
     }
-    xml.open('POST', 'search', true);
+    console.log(room_type + start_date + end_date);
+    xml.open('POST', 'order_pro', true);
     xml.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xml.send('type=' + room_type + '&start=' + start_date + '&end=' + end_date);
     xml.onreadystatechange = function () {
