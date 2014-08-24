@@ -7,23 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c17cffe3-29fb-4784-ac48-ef331eddf321" name="Default" comment="user info">
-      <change type="DELETED" beforePath="C:\workspace\fanqie\src\Servlet\UserUpdate.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\workspace\fanqie\src\javabean\Conn.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\workspace\fanqie\src\main\DAOPro.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\workspace\fanqie\web\WEB-INF\classes\Servlet\UserUpdate.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\workspace\fanqie\web\WEB-INF\login.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/main/DAOImpl.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/main/DAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/main/DAOProxy.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/main/DAOProxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/OrderPro.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/OrderPro.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/UserInfo.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/Servlet/UserInfo.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/fanqie_war.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/main/test.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/main/test.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DAOImpl.java" afterPath="$PROJECT_DIR$/src/main/DAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/DAOProxy.java" afterPath="$PROJECT_DIR$/src/main/DAOProxy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Servlet/OrderPro.java" afterPath="$PROJECT_DIR$/src/Servlet/OrderPro.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Servlet/UserInfo.java" afterPath="$PROJECT_DIR$/src/Servlet/UserInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/main.js" afterPath="$PROJECT_DIR$/web/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/test.java" afterPath="$PROJECT_DIR$/src/main/test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="fanqie.iws" />
@@ -59,26 +47,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/main.html">
+      <file leaf-file-name="test.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.8448275" vertical-offset="3353" max-vertical-offset="4580">
-              <caret line="173" column="31" selection-start-line="173" selection-start-column="30" selection-end-line="173" selection-end-column="31" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="500">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+              <folding>
+                <element signature="e#351#352#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserInfo.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Servlet/UserInfo.java">
+      <file leaf-file-name="DAOImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/DAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66292137" vertical-offset="1224" max-vertical-offset="1580">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.586207" vertical-offset="0" max-vertical-offset="3920">
+              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#476#506#0" expanded="true" />
-                <element signature="e#2347#2348#0" expanded="true" />
-                <element signature="e#2388#2389#0" expanded="true" />
+                <element signature="e#4392#4398#0" expanded="true" />
+                <marker date="1408901701524" expanded="true" signature="902:916" placeholder="select * fro..missingValue..." />
+                <marker date="1408901701524" expanded="true" signature="4532:4769" placeholder="select a.roo..room..." />
+                <marker date="1408901701524" expanded="true" signature="4615:4768" placeholder="select 1 fro..orderlist..." />
+                <marker date="1408901701524" expanded="true" signature="4808:5099" placeholder="select a.roo..room..." />
+                <marker date="1408901701524" expanded="true" signature="4891:5044" placeholder="select 1 fro..orderlist..." />
+                <marker date="1408901701524" expanded="true" signature="5882:6022" placeholder="select 1 fro..orderlist..." />
+                <marker date="1408901701524" expanded="true" signature="6382:6442" placeholder="update user ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DAOProxy.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/DAOProxy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1860">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#506#520#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderPro.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Servlet/OrderPro.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.77395576" vertical-offset="2365" max-vertical-offset="2960">
+              <caret line="134" column="13" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,13 +167,13 @@
         <option value="$PROJECT_DIR$/src/Servlet/Hello.java" />
         <option value="$PROJECT_DIR$/src/Servlet/Login.java" />
         <option value="$PROJECT_DIR$/src/main/DAOPro.java" />
-        <option value="$PROJECT_DIR$/src/Servlet/OrderPro.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/test.java" />
         <option value="$PROJECT_DIR$/src/main/DAOProxy.java" />
-        <option value="$PROJECT_DIR$/src/main/DAOImpl.java" />
         <option value="$PROJECT_DIR$/web/js/main.js" />
         <option value="$PROJECT_DIR$/src/Servlet/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/test.java" />
+        <option value="$PROJECT_DIR$/src/main/DAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/Servlet/OrderPro.java" />
       </list>
     </option>
   </component>
@@ -297,6 +318,10 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Servlet" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -334,6 +359,20 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fanqie" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fanqie" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -348,7 +387,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -391,7 +430,7 @@
       <recent name="C:\workspace\fanqie\web\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.tomcat">
+  <component name="RunManager" selected="Application.test">
     <configuration default="false" name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -885,6 +924,11 @@
             <option name="CONTEXT_PATH" value="/fanqie" />
           </settings>
         </artifact>
+        <artifact name="fanqie:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/hah" />
+          </settings>
+        </artifact>
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_fanqie_6" />
@@ -952,12 +996,13 @@
       <method>
         <option name="BuildArtifacts" enabled="true">
           <artifact name="fanqie:war exploded" />
+          <artifact name="fanqie:war" />
         </option>
       </method>
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.tomcat" />
-      <item index="1" class="java.lang.String" itemvalue="Application.test" />
+      <item index="0" class="java.lang.String" itemvalue="Application.test" />
+      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.tomcat" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -1028,7 +1073,7 @@
       <workItem from="1407989625857" duration="18492000" />
       <workItem from="1408685599923" duration="54688000" />
       <workItem from="1408800000753" duration="11377000" />
-      <workItem from="1408855177885" duration="10880000" />
+      <workItem from="1408855177885" duration="17541000" />
     </task>
     <task id="LOCAL-00001" summary="17:33">
       <created>1407749655427</created>
@@ -1038,7 +1083,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593390000" />
+    <option name="totallyTimeSpent" value="600051000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1062,7 +1107,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5392491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1085,8 +1130,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19591528" sideWeight="0.66172105" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3208191" sideWeight="0.5761347" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19591528" sideWeight="0.66172105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2337884" sideWeight="0.5761347" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329429" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4573379" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -1187,8 +1232,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="2620">
           <caret line="82" column="46" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#978#994#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#978#994#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1449,52 +1494,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17921147" vertical-offset="0" max-vertical-offset="558">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DAOProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="359" max-vertical-offset="1860">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#397#427#0" expanded="true" />
-            <element signature="e#506#520#0" expanded="true" />
-            <element signature="e#1488#1518#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Conn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="440">
           <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/DAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.4847715" vertical-offset="2741" max-vertical-offset="3940">
-          <caret line="186" column="36" selection-start-line="186" selection-start-column="36" selection-end-line="186" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4423#4429#0" expanded="true" />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="select * fro..missingValue..." />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="select a.roo..room..." />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="select 1 fro..orderlist..." />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="select a.roo..room..." />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="select 1 fro..orderlist..." />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="select 1 fro..orderlist..." />
-            <marker date="1408877309464" expanded="true" signature="-1:-1" placeholder="update user ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1511,8 +1515,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="2580">
           <caret line="85" column="17" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#978#994#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#978#994#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1522,7 +1526,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="980">
           <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1532,7 +1536,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="466" max-vertical-offset="900">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1553,33 +1557,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8448275" vertical-offset="3353" max-vertical-offset="4580">
-          <caret line="173" column="31" selection-start-line="173" selection-start-column="30" selection-end-line="173" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Servlet/OrderPro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.056179777" vertical-offset="1200" max-vertical-offset="2980">
-          <caret line="61" column="79" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Servlet/UserInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66292137" vertical-offset="1224" max-vertical-offset="1580">
+        <state vertical-scroll-proportion="0.7196262" vertical-offset="1152" max-vertical-offset="1580">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#476#506#0" expanded="true" />
             <element signature="e#2347#2348#0" expanded="true" />
             <element signature="e#2388#2389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2891892" vertical-offset="3353" max-vertical-offset="4580">
+          <caret line="173" column="31" selection-start-line="173" selection-start-column="30" selection-end-line="173" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="500">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.586207" vertical-offset="0" max-vertical-offset="3920">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4392#4398#0" expanded="true" />
+            <marker date="1408901701524" expanded="true" signature="902:916" placeholder="select * fro..missingValue..." />
+            <marker date="1408901701524" expanded="true" signature="4532:4769" placeholder="select a.roo..room..." />
+            <marker date="1408901701524" expanded="true" signature="4615:4768" placeholder="select 1 fro..orderlist..." />
+            <marker date="1408901701524" expanded="true" signature="4808:5099" placeholder="select a.roo..room..." />
+            <marker date="1408901701524" expanded="true" signature="4891:5044" placeholder="select 1 fro..orderlist..." />
+            <marker date="1408901701524" expanded="true" signature="5882:6022" placeholder="select 1 fro..orderlist..." />
+            <marker date="1408901701524" expanded="true" signature="6382:6442" placeholder="update user ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/DAOProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1860">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#520#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Servlet/OrderPro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77395576" vertical-offset="2365" max-vertical-offset="2960">
+          <caret line="134" column="13" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1593,16 +1637,15 @@
             <show-content>
               <type id="library" />
               <type id="artifact" />
-              <type id="jpa-descriptors" />
               <type id="javaee-facet-resources" />
+              <type id="jpa-descriptors" />
             </show-content>
           </artifact-editor>
-          <last-edited>fanqie:war exploded</last-edited>
+          <last-edited>fanqie:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

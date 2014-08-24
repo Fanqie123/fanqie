@@ -7,7 +7,6 @@ import javabean.User;
 import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,7 +29,7 @@ public class DAOImpl<E> {
     }
 
     public List findAll() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        List<E> list = new LinkedList<E>();
+        List<E> list = new ArrayList<E>();
         Connection connection = new Conn().getConnection();
         ps = connection.prepareStatement("select * from " + className.getSimpleName());
         ResultSet rs = ps.executeQuery();
@@ -47,7 +46,7 @@ public class DAOImpl<E> {
     }
 
     public List find() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        List<E> list = new LinkedList<E>();
+        List<E> list = new ArrayList<E>();
         StringBuilder sql = new StringBuilder("select * from " + e.getClass().getSimpleName() + " where ");
         for (Field field : fields) {
             field.setAccessible(true);

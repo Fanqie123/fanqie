@@ -8,9 +8,13 @@ import java.sql.SQLException;
 
 public class test {
     public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        String a = "2013-8-13";
-        String b = "2013-8-14";
-        System.out.print(a.compareTo(b));
+        System.out.print((0 + 15) / 2);
+    }
+
+    public static int gcd(int p, int q) {
+        if(q==0) return p;
+        int r = p % q;
+        return gcd(q,r);
     }
 
 }
