@@ -1,9 +1,5 @@
 package main;
 
-
-
-import javabean.OrderList;
-
 import java.io.UnsupportedEncodingException;
 
 import java.security.NoSuchAlgorithmException;
@@ -15,7 +11,6 @@ public class test {
         String a = "2013-8-13";
         String b = "2013-8-14";
         System.out.print(a.compareTo(b));
-
     }
 
 }

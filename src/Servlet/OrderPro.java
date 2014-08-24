@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -108,9 +107,12 @@ public class OrderPro extends HttpServlet {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            if(bool)
+            if(bool) {
                 out.print("success");
-            out.print("fail");
+            }else {
+                out.print("failed");
+            }
+
             out.close();
             return;
         }

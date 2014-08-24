@@ -2,9 +2,9 @@ package main;
 
 import javabean.OrderList;
 import javabean.Room;
+import javabean.User;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,6 +21,7 @@ public class DAOImpl<E> {
     Field[] fields;
     Connection connection;
     PreparedStatement ps;
+    @SuppressWarnings("unchecked")
     public DAOImpl(E e,Connection connection){
         this.e=e;
         this.className= (Class<E>) e.getClass();
@@ -168,5 +169,23 @@ public class DAOImpl<E> {
         boolean bool = rs.next();
         ps.close();
         return bool;
+    }
+
+    public boolean updateUser() throws SQLException {
+        User user = (User) e;
+        ps = connection.prepareStatement("update user set password=?,name=?,sex=?,id=? where account=?");
+        ps.setString(1, user.getPassword());
+        ps.setString(2, user.getName());
+        ps.setString(3, user.getSex());
+        ps.setString(4, user.getId());
+        ps.setString(5, user.getAccount());
+        int count = ps.executeUpdate();
+        System.out.println(user.getAccount());
+        System.out.println(user.getName());
+        System.out.println(user.getSex());
+        System.out.println(user.getId());
+        System.out.println(user.getPassword());
+        ps.close();
+        return count == 1;
     }
 }

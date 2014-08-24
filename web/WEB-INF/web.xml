@@ -40,6 +40,10 @@
         <servlet-class>Servlet.AccountCheck</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>OrderPro</servlet-name>
+        <servlet-class>Servlet.OrderPro</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>UserInfo</servlet-name>
         <servlet-class>Servlet.UserInfo</servlet-class>
     </servlet>
@@ -47,21 +51,9 @@
         <servlet-name>UserInfo</servlet-name>
         <url-pattern>/user_info</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>UserUpdate</servlet-name>
-        <servlet-class>Servlet.UserUpdate</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>OrderPro</servlet-name>
-        <servlet-class>Servlet.OrderPro</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>OrderPro</servlet-name>
         <url-pattern>/order_pro</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>UserUpdate</servlet-name>
-        <url-pattern>/user_update</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AccountCheck</servlet-name>

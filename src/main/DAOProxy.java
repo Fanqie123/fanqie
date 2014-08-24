@@ -17,6 +17,7 @@ public class DAOProxy<E>{
     E e;
     private Conn conn=null;
     private DAOImpl dao=null;
+    @SuppressWarnings("unchecked")
     private static ConcurrentHashMap<String, Lock> map = new ConcurrentHashMap<String, Lock>();
     public DAOProxy(E e) throws SQLException, ClassNotFoundException {
         this.e=e;
@@ -47,7 +48,7 @@ public class DAOProxy<E>{
         conn.close();
         return bool;
     }
-
+    @SuppressWarnings("unchecked")
     public List<Room> findRoom(String start_date, String end_date) throws SQLException {
         List list;
         list = dao.findRoom(start_date, end_date);
@@ -77,6 +78,10 @@ public class DAOProxy<E>{
         return bool;
     }
 
-
+    public boolean updateUser() throws SQLException {
+        boolean bool=dao.updateUser();
+        conn.close();
+        return bool;
+    }
 
 }

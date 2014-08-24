@@ -160,7 +160,12 @@ $('#btn_order_cancel').click(function () {
         type: "post",
         data: "order_no="+order_no,
         success:function(info){
-            console.log(info);
+            if(info=="success"){
+                $('#table_body1 tr.selected').remove();
+                show("退订成功");
+            }else{
+                show("退订失败");
+            }
         }
     });
 });
@@ -196,11 +201,11 @@ $('#save').click(function () {
     var object = {};
     object.id = $('#id_i').val();
     object.name = $('#name_i').val();
-//    object.password = $('#password_i').val();
+    object.password = $('#password_i').val();
     object.sex = $('input:radio:checked').val();
     var json = JSON.stringify(object);
     $.ajax({
-        url: 'user_update',
+        url: 'user_info',
         type: 'post',
         data: {user: json},
         success: function (msg) {
@@ -209,7 +214,10 @@ $('#save').click(function () {
                 $('#save').attr('disabled','disabled');
                 $("[id$='i']").attr('disabled','disabled')
                 show('保存成功');
+            }else{
+                show("保存失败")
             }
+
         }
     });
 });
